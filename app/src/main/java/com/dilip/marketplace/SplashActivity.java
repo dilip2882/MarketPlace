@@ -1,6 +1,8 @@
 package com.dilip.marketplace;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,5 +17,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        SystemClock.sleep(3000);
+        startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
+        finish();
     }
 }
