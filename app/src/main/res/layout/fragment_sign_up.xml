@@ -38,13 +38,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/splash_activity_background" />
-
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -56,6 +49,13 @@
                 android:textColor="@color/white"
                 android:textSize="34sp"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:src="@drawable/splash_activity_background" />
 
         </LinearLayout>
 
@@ -80,6 +80,7 @@
                 android:hint="Email ID"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
+                android:textColor="@color/white"
                 android:textColorHint="#70ffffff" />
 
             <EditText
@@ -91,6 +92,7 @@
                 android:hint="Full Name"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
+                android:textColor="@color/white"
                 android:textColorHint="#70ffffff" />
 
             <EditText
@@ -99,9 +101,10 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#70ffffff"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Password (at least 8 characters)"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
+                android:textColor="@color/white"
                 android:textColorHint="#70ffffff" />
 
             <EditText
@@ -113,11 +116,27 @@
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
+                android:textColor="@color/white"
                 android:textColorHint="#70ffffff" />
 
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/sign_up_progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:backgroundTintMode="src_in"
+            android:visibility="invisible"
+            android:progressBackgroundTintMode="src_in"
+            android:background="@color/progressbar_color"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -129,13 +148,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-
             <Button
                 android:id="@+id/sign_up_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#30ffffff"
+                android:backgroundTint="#10ffffff"
                 android:text="Sign Up"
+                android:enabled="false"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -160,13 +179,16 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:text="or"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider"
+                    app:layout_constraintStart_toEndOf="@+id/divider"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="120dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <View
                     android:id="@+id/divider"

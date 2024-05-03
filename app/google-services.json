@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478794555068",
+    "project_id": "market-place-39d26",
+    "storage_bucket": "market-place-39d26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478794555068:android:2545d00ef9d7e2527e3ab9",
+        "android_client_info": {
+          "package_name": "com.dilip.marketplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP95q-hKeXixSDkFVGOSn5NlTrInGTWtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
