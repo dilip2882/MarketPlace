@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <EditText
-                android:id="@+id/sign_up_email"
+                android:id="@+id/sign_in_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#70ffffff"
@@ -83,7 +83,7 @@
                 android:textColor="@color/white"/>
 
             <EditText
-                android:id="@+id/sign_up_password"
+                android:id="@+id/sign_in_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#70ffffff"
@@ -95,7 +95,7 @@
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/sign_up_forgot_password"
+                android:id="@+id/sign_in_forgot_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -111,6 +111,9 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:backgroundTintMode="src_in"
+            android:visibility="invisible"
+            android:progressBackgroundTintMode="src_in"
+            android:background="@color/progressbar_color"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,11 +134,12 @@
 
 
             <Button
-                android:id="@+id/sign_up_btn"
+                android:id="@+id/sign_in_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#30ffffff"
+                android:backgroundTint="#10ffffff"
                 android:text="Sign In"
+                android:enabled="false"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -187,7 +191,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/tv_sign_up_btn"
+                android:id="@+id/tv_sign_up_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

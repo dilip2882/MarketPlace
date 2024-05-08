@@ -1,6 +1,7 @@
 package com.dilip.marketplace;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -16,21 +17,42 @@ import com.dilip.marketplace.databinding.ActivityRegisterBinding;
 public class RegisterActivity extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
+    public static boolean onResetPasswordFragment = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setFragment(new SignInFragment());
+        setDefFragment(new SignInFragment());
 
 
     }
 
-    private void setFragment(Fragment fragment) {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (onResetPasswordFragment) {
+                onResetPasswordFragment = false;
+                setFragment(new SignInFragment());
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void setDefFragment(Fragment fragment) {
         FragmentTransaction  fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(binding.registerFrameLayout.getId(), fragment);
         fragmentTransaction.commit();
 
+    }
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_from_left, R.anim.slideout_from_right);
+        fragmentTransaction.replace(binding.registerFrameLayout.getId(), fragment);
+        fragmentTransaction.commit();
     }
 }

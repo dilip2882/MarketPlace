@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_market_place">
+
+    <fragment
+        android:id="@+id/nav_market_place"
+        android:label="Orders"
+        android:name="com.dilip.marketplace.ui.drawer.marketplace.MarketPlaceFragment"
+        tools:layout="@layout/fragment_market_place" />
+
+    <fragment
+        android:id="@+id/nav_orders"
+        android:label="Orders"
+        android:name="com.dilip.marketplace.ui.drawer.orders.OrdersFragment"
+        tools:layout="@layout/fragment_orders" />
+
+    <fragment
+        android:id="@+id/nav_rewards"
+        android:label="Orders"
+        android:name="com.dilip.marketplace.ui.drawer.rewards.RewardsFragment"
+        tools:layout="@layout/fragment_rewards" />
+
+    <fragment
+        android:id="@+id/nav_cart"
+        android:label="Cart"
+        android:name="com.dilip.marketplace.ui.drawer.cart.CartFragment"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/nav_wishlist"
+        android:label="Wishlist"
+        android:name="com.dilip.marketplace.ui.drawer.wishlist.WishlistFragment"
+        tools:layout="@layout/fragment_wishlist" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:label="Account"
+        android:name="com.dilip.marketplace.ui.drawer.account.AccountFragment"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/nav_sign_out"
+        android:label="Sign Out"
+        android:name="com.dilip.marketplace.ui.drawer.sign_out.SignOutFragment"
+        tools:layout="@layout/fragment_sign_out" />
+
+</navigation>

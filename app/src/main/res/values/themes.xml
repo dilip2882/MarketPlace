@@ -18,4 +18,22 @@
         <item name="colorAccent">@color/blue</item>
         <item name="android:windowBackground">@drawable/splash_activity_background</item>
     </style>
+
+    <!-- BlueProgressbar theme. -->
+    <style name="BlueProgressbar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/dark_blue</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:windowBackground">@drawable/splash_activity_background</item>
+    </style>
+
+    <style name="Theme.MarketPlace.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MarketPlace.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MarketPlace.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

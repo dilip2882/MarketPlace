@@ -24,6 +24,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpFragment extends Fragment {
     FragmentSignUpBinding binding; // View binding for the fragment
@@ -34,6 +39,7 @@ public class SignUpFragment extends Fragment {
 
     private FrameLayout parentFrameLayout;
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
     private final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -45,6 +51,7 @@ public class SignUpFragment extends Fragment {
         parentFrameLayout = getActivity().findViewById(R.id.register_frame_layout);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         return rootView;
     }
 
@@ -136,6 +143,14 @@ public class SignUpFragment extends Fragment {
 
             }
         });
+
+        binding.signUpCloseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainIntent();
+            }
+        });
+
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -197,9 +212,29 @@ public class SignUpFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Intent mainIntent = new Intent(getActivity(), MainActivity.class);
-                                    startActivity(mainIntent);
-                                    getActivity().finish();
+
+                                    Map<Object,String> userdata = new HashMap<>();
+                                    userdata.put("fullname",binding.signUpFullName.getText().toString());
+
+                                    firebaseFirestore.collection("USERS")
+                                            .add(userdata)
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                    if (task.isSuccessful()) {
+                                                        mainIntent();
+                                                        getActivity().finish();
+                                                    } else {
+                                                        binding.signUpProgressbar.setVisibility(View.INVISIBLE);
+                                                        binding.signUpBtn.setEnabled(true);
+                                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                                            binding.signUpBtn.setTextColor(Color.argb(20f,255,255,255));
+                                                        }
+                                                        String error = task.getException().getMessage();
+                                                        Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                 } else {
                                     binding.signUpProgressbar.setVisibility(View.INVISIBLE);
                                     binding.signUpBtn.setEnabled(true);
@@ -219,5 +254,10 @@ public class SignUpFragment extends Fragment {
             binding.signUpEmail.setError("Invalid Email!");
         }
 
+    }
+
+    private  void mainIntent() {
+        Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+        startActivity(mainIntent);
     }
 }
