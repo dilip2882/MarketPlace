@@ -3,6 +3,7 @@ package com.dilip.marketplace.ui.categories;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,16 +16,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.FragmentHomeBinding;
+import com.dilip.marketplace.databinding.GridProductLayoutBinding;
 import com.dilip.marketplace.databinding.HorizontalScrollLayoutBinding;
 import com.dilip.marketplace.databinding.SlidingAdLayoutBinding;
 import com.dilip.marketplace.databinding.StripAdLayoutBinding;
-import com.dilip.marketplace.ui.product_scroll.HorizontalProductScrollAdapter;
-import com.dilip.marketplace.ui.product_scroll.HorizontalProductScrollModel;
+import com.dilip.marketplace.ui.grid_product_view.GridProductLayoutAdapter;
+import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollAdapter;
+import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 import com.dilip.marketplace.ui.slider.SliderAdapter;
 import com.dilip.marketplace.ui.slider.SliderModel;
 
@@ -50,17 +54,16 @@ public class HomeFragment extends Fragment {
     //////// Banner Slider
 
     //////// Horizontal Product Layout
-    /*private TextView horizontalLayoutTitle;
-    private Button viewAllBtn;
-    private RecyclerView HorizontalRecyclerView;*/
     HorizontalScrollLayoutBinding includedHorizontalLayoutBinding;
-
     //////// Horizontal Product Layout
 
+    //////// Grid Product Layout
+    GridProductLayoutBinding includedgridProductLayoutBinding;
+    //////// Grid Product Layout
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
@@ -175,7 +178,7 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iqoo_z6,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_nord,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_11r,"I Phone 13","Bionic A2", "Rs.99,999"));
-        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.galaxy_m34,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
@@ -187,6 +190,16 @@ public class HomeFragment extends Fragment {
         horizontalLayoutRecyclerview.setAdapter(horizontalProductScrollAdapter);
         horizontalProductScrollAdapter.notifyDataSetChanged();
         //////// Horizontal Product Layout
+
+        //////// Grid Product Layout
+        includedgridProductLayoutBinding = binding.includedGridProductView;
+        TextView gridProductTitle = includedgridProductLayoutBinding.gridProductLayoutTitle;
+        Button gridLayoutViewAllBtn = includedgridProductLayoutBinding.gridProductLayoutViewAllButton;
+        GridView gridView = includedgridProductLayoutBinding.gridProoductLayoutGridView;
+
+        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+
+        //////// Grid Product Layout
 
 
 

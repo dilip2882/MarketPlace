@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui.product_scroll;
+package com.dilip.marketplace.ui.horizontal_product_view;
 
 import android.view.LayoutInflater;
 import android.view.View;
