@@ -14,13 +14,17 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.FragmentHomeBinding;
-import com.dilip.marketplace.databinding.SliderLayoutBinding;
+import com.dilip.marketplace.databinding.HorizontalScrollLayoutBinding;
 import com.dilip.marketplace.databinding.SlidingAdLayoutBinding;
 import com.dilip.marketplace.databinding.StripAdLayoutBinding;
+import com.dilip.marketplace.ui.product_scroll.HorizontalProductScrollAdapter;
+import com.dilip.marketplace.ui.product_scroll.HorizontalProductScrollModel;
 import com.dilip.marketplace.ui.slider.SliderAdapter;
 import com.dilip.marketplace.ui.slider.SliderModel;
 
@@ -44,6 +48,14 @@ public class HomeFragment extends Fragment {
     private final long DELAY_TIME = 2000;
     private final long PERIOD_TIME = 2000;
     //////// Banner Slider
+
+    //////// Horizontal Product Layout
+    /*private TextView horizontalLayoutTitle;
+    private Button viewAllBtn;
+    private RecyclerView HorizontalRecyclerView;*/
+    HorizontalScrollLayoutBinding includedHorizontalLayoutBinding;
+
+    //////// Horizontal Product Layout
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -84,18 +96,18 @@ public class HomeFragment extends Fragment {
 
         ///////// Banner Slider
         sliderModelList = new ArrayList<>();
+        sliderModelList.add(new SliderModel(R.drawable.banner5,"#ffffff"));
+        sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
+        sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
+
+        sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner3,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner4,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
+        sliderModelList.add(new SliderModel(R.drawable.banner5,"#ffffff"));
 
+        sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.mipmap.logo,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.forgot_password,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner3,"#ffffff"));
-
-        sliderModelList.add(new SliderModel(R.drawable.banner4,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
 
         SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
         bannerSliderViewPager.setClipToPadding(false);
@@ -139,8 +151,9 @@ public class HomeFragment extends Fragment {
 
         bannerSliderViewPager.setAdapter(sliderAdapter);
         sliderAdapter.notifyDataSetChanged();
+        ///////// Banner Slider
 
-        ///////// Strip
+        ///////// Strip Ad
         // Access included layout view
         StripAdLayoutBinding includedStripAdView = binding.includedStripAdView;
         // Access views within included_layout.xml using includedBinding
@@ -149,7 +162,32 @@ public class HomeFragment extends Fragment {
 
        /* stripAdImage.setImageResource(R.drawable.baseline_store_mall_directory_24);
         stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));*/
-        ///////// Strip
+        ///////// Strip Ad
+
+        //////// Horizontal Product Layout
+        includedHorizontalLayoutBinding = binding.includedHorizontalScrollView;
+        TextView horizontalLayoutTitle = includedHorizontalLayoutBinding.horizontalScrollLayoutTitle;
+        Button horizontalLayoutViewAllBtn = includedHorizontalLayoutBinding.horizontalScrollLayoutViewAllButton;
+        RecyclerView horizontalLayoutRecyclerview = includedHorizontalLayoutBinding.horizontalScrollLayoutRecyclerview;
+
+        List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iqoo_z6,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_nord,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_11r,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+
+        HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        horizontalLayoutRecyclerview.setLayoutManager(linearLayoutManager);
+        horizontalLayoutRecyclerview.setAdapter(horizontalProductScrollAdapter);
+        horizontalProductScrollAdapter.notifyDataSetChanged();
+        //////// Horizontal Product Layout
+
 
 
         return root;

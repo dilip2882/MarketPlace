@@ -12,33 +12,22 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/strip_ad_layout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
-        android:id="@+id/sliding_ad_layout"
+        android:id="@+id/strip_ad_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/strip_ad_layout"
+        app:layout_constraintBottom_toTopOf="@+id/sliding_ad_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_recyclerview">
-
-        <include
-            android:id="@+id/included_sliding_ad_view"
-            layout="@layout/sliding_ad_layout" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/strip_ad_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sliding_ad_layout">
 
         <include
             android:id="@+id/included_strip_ad_view"
@@ -46,5 +35,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sliding_ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strip_ad_layout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <include
+            android:id="@+id/included_sliding_ad_view"
+            layout="@layout/sliding_ad_layout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/horizontal_scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sliding_ad_layout">
+
+        <include
+            android:id="@+id/included_horizontal_scroll_view"
+            layout="@layout/horizontal_scroll_layout" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

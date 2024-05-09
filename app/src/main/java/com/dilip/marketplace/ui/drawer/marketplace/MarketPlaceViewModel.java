@@ -9,7 +9,7 @@ public class MarketPlaceViewModel extends ViewModel {
 
     public MarketPlaceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is market place fragment");
+
     }
 
     public LiveData<String> getText() {
