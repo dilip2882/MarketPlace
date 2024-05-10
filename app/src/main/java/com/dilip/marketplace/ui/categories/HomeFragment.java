@@ -26,6 +26,8 @@ import com.dilip.marketplace.databinding.GridProductLayoutBinding;
 import com.dilip.marketplace.databinding.HorizontalScrollLayoutBinding;
 import com.dilip.marketplace.databinding.SlidingAdLayoutBinding;
 import com.dilip.marketplace.databinding.StripAdLayoutBinding;
+import com.dilip.marketplace.ui.HomePageAdapter;
+import com.dilip.marketplace.ui.HomePageModel;
 import com.dilip.marketplace.ui.grid_product_view.GridProductLayoutAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
@@ -187,6 +189,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         horizontalLayoutRecyclerview.setLayoutManager(linearLayoutManager);
+
         horizontalLayoutRecyclerview.setAdapter(horizontalProductScrollAdapter);
         horizontalProductScrollAdapter.notifyDataSetChanged();
         //////// Horizontal Product Layout
@@ -195,12 +198,32 @@ public class HomeFragment extends Fragment {
         includedgridProductLayoutBinding = binding.includedGridProductView;
         TextView gridProductTitle = includedgridProductLayoutBinding.gridProductLayoutTitle;
         Button gridLayoutViewAllBtn = includedgridProductLayoutBinding.gridProductLayoutViewAllButton;
-        GridView gridView = includedgridProductLayoutBinding.gridProoductLayoutGridView;
+        GridView gridView = includedgridProductLayoutBinding.gridProductLayoutGridView;
 
         gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
-
         //////// Grid Product Layout
 
+        ////////
+        LinearLayoutManager testingLinearLayoutManager = new LinearLayoutManager(getContext());
+        testingLinearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        binding.rvTesting.setLayoutManager(testingLinearLayoutManager);
+
+        List<HomePageModel> homePageModelList = new ArrayList<>();
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner0,"#ffffff"));
+        homePageModelList.add(new HomePageModel(2, "Deals of the day", horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3, "Deals of the day", horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3, "Deals of the day", horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(2, "Deals of the day", horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner1,"#ffffff"));
+        homePageModelList.add(new HomePageModel(1,R.drawable.slider_background,"#ff0000"));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+
+        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+        binding.rvTesting.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        ///////
 
 
         return root;
