@@ -46,24 +46,7 @@ public class HomeFragment extends Fragment {
     }
 
     FragmentHomeBinding binding;
-    ///////// Banner Slider
-    SlidingAdLayoutBinding includedSlidingAdView;
-    private List<SliderModel> sliderModelList;
-    private int currentPage = 2;
-    private Timer timer;
-    private final long DELAY_TIME = 2000;
-    private final long PERIOD_TIME = 2000;
-    //////// Banner Slider
 
-    //////// Horizontal Product Layout
-    HorizontalScrollLayoutBinding includedHorizontalLayoutBinding;
-    //////// Horizontal Product Layout
-
-    //////// Grid Product Layout
-    GridProductLayoutBinding includedgridProductLayoutBinding;
-    //////// Grid Product Layout
-
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,11 +54,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
-
-        // Access included layout view
-        includedSlidingAdView = binding.includedSlidingAdView;
-        // Access views within included_layout.xml using includedBinding
-        ViewPager bannerSliderViewPager = includedSlidingAdView.bannerSliderViewPager;
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -100,7 +78,7 @@ public class HomeFragment extends Fragment {
 
 
         ///////// Banner Slider
-        sliderModelList = new ArrayList<>();
+        List<SliderModel> sliderModelList = new ArrayList<>();
         sliderModelList.add(new SliderModel(R.drawable.banner5,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
@@ -113,67 +91,13 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
         sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
-
-        SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
-        bannerSliderViewPager.setClipToPadding(false);
-        bannerSliderViewPager.setPageMargin(20);
-        bannerSliderViewPager.setCurrentItem(currentPage);
-
-        ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                currentPage = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                if (state == ViewPager.SCROLL_STATE_IDLE) {
-                    pageLooper();
-                }
-            }
-        };
-        bannerSliderViewPager.addOnPageChangeListener(onPageChangeListener);
-
-        startBannerSlideShow();
-
-        bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                pageLooper();
-                stopBannerSlideShow();
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    startBannerSlideShow();
-                }
-                return false;
-            }
-        });
-
-        bannerSliderViewPager.setAdapter(sliderAdapter);
-        sliderAdapter.notifyDataSetChanged();
         ///////// Banner Slider
 
         ///////// Strip Ad
-        // Access included layout view
-        StripAdLayoutBinding includedStripAdView = binding.includedStripAdView;
-        // Access views within included_layout.xml using includedBinding
-        ImageView stripAdImage = includedStripAdView.stripAdImage;
-        ConstraintLayout stripAdContainer = includedStripAdView.stripAdContainer;
-
-       /* stripAdImage.setImageResource(R.drawable.baseline_store_mall_directory_24);
-        stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));*/
         ///////// Strip Ad
 
         //////// Horizontal Product Layout
-        includedHorizontalLayoutBinding = binding.includedHorizontalScrollView;
-        TextView horizontalLayoutTitle = includedHorizontalLayoutBinding.horizontalScrollLayoutTitle;
-        Button horizontalLayoutViewAllBtn = includedHorizontalLayoutBinding.horizontalScrollLayoutViewAllButton;
-        RecyclerView horizontalLayoutRecyclerview = includedHorizontalLayoutBinding.horizontalScrollLayoutRecyclerview;
+
 
         List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
@@ -184,44 +108,31 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
-
-        HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        horizontalLayoutRecyclerview.setLayoutManager(linearLayoutManager);
-
-        horizontalLayoutRecyclerview.setAdapter(horizontalProductScrollAdapter);
-        horizontalProductScrollAdapter.notifyDataSetChanged();
         //////// Horizontal Product Layout
 
         //////// Grid Product Layout
-        includedgridProductLayoutBinding = binding.includedGridProductView;
-        TextView gridProductTitle = includedgridProductLayoutBinding.gridProductLayoutTitle;
-        Button gridLayoutViewAllBtn = includedgridProductLayoutBinding.gridProductLayoutViewAllButton;
-        GridView gridView = includedgridProductLayoutBinding.gridProductLayoutGridView;
 
-        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
         //////// Grid Product Layout
 
         ////////
+
         LinearLayoutManager testingLinearLayoutManager = new LinearLayoutManager(getContext());
         testingLinearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        binding.rvTesting.setLayoutManager(testingLinearLayoutManager);
+        binding.homePageRecyclerview.setLayoutManager(testingLinearLayoutManager);
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.banner0,"#ffffff"));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(2, "Deals of the day", horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(3, "Deals of the day", horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(3, "Deals of the day", horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(2, "Deals of the day", horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.banner1,"#ffffff"));
-        homePageModelList.add(new HomePageModel(1,R.drawable.slider_background,"#ff0000"));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
-        binding.rvTesting.setAdapter(adapter);
+        binding.homePageRecyclerview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         ///////
 
@@ -229,41 +140,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
     ///////// Banner Slider
-    private void pageLooper() {
-        if (currentPage == sliderModelList.size()-2) {
-            currentPage = 2;
-            includedSlidingAdView.bannerSliderViewPager.setCurrentItem(currentPage,true);
-        }
-        if (currentPage == 1) {
-            currentPage = sliderModelList.size() - 3;
-            includedSlidingAdView.bannerSliderViewPager.setCurrentItem(currentPage,true);
-        }
-    }
 
-    private void startBannerSlideShow() {
-        Handler handler = new Handler();
-        Runnable update = new Runnable() {
-            @Override
-            public void run() {
-                if (currentPage >= sliderModelList.size()) {
-                    currentPage = 1;
-                }
-                includedSlidingAdView.bannerSliderViewPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(update);
-            }
-        }, DELAY_TIME, PERIOD_TIME);
-
-    }
-
-    private void stopBannerSlideShow() {
-        timer.cancel();
-    }
     ///////// Banner Slider
 
 }
