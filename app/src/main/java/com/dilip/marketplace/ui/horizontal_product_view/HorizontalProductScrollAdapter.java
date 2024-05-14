@@ -1,5 +1,6 @@
 package com.dilip.marketplace.ui.horizontal_product_view;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.HorizontalScrollItemBinding;
+import com.dilip.marketplace.ui.ProductDetailsActivity;
 
 import java.util.List;
 
@@ -54,6 +56,14 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = HorizontalScrollItemBinding.bind(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                    itemView.getContext().startActivity(productDetailsIntent);
+                }
+            });
         }
 
         private void setProductImage(int resource) {
