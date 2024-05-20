@@ -26,6 +26,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ActivityProductDetailsBinding binding;
     private ViewPager productImagesViewPager;
     private TabLayout viewPagerIndicator;
+
+    private ViewPager productDetailsViewPager;
+    private TabLayout productDetailsTabLayout;
+
     private FloatingActionButton addToWishlistBtn;
     private boolean ALREADY_ADDED_TO_WISHLIST = false;
     @Override
@@ -42,6 +46,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productImagesViewPager = findViewById(R.id.product_images_viewpager);
         viewPagerIndicator = findViewById(R.id.viewpager_indicator);
         addToWishlistBtn = findViewById(R.id.add_to_wishlist_btn);
+
+        productDetailsTabLayout  = findViewById(R.id.product_details_tabLayout);
+        productDetailsViewPager = findViewById(R.id.product_details_viewPager);
 
         List<Integer> productImages = new ArrayList<>();
         productImages.add(R.drawable.iphone_13);
@@ -64,6 +71,26 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     ALREADY_ADDED_TO_WISHLIST = true;
                     addToWishlistBtn.setSupportImageTintList(getResources().getColorStateList(R.color.blue));
                 }
+
+            }
+        });
+
+        productDetailsViewPager.setAdapter(new ProductDetailsAdapter(getSupportFragmentManager(), productDetailsTabLayout.getTabCount()));
+        productDetailsViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(productDetailsTabLayout));
+
+        productDetailsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                productDetailsViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
             }
         });
