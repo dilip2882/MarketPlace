@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.product;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

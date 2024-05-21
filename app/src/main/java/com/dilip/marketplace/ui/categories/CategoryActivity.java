@@ -4,19 +4,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.ActivityCategoryBinding;
-import com.dilip.marketplace.ui.HomePageAdapter;
-import com.dilip.marketplace.ui.HomePageModel;
+import com.dilip.marketplace.ui.home.HomePageAdapter;
+import com.dilip.marketplace.ui.home.HomePageModel;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 import com.dilip.marketplace.ui.slider.SliderModel;
 

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProductDetailsActivity">
+    tools:context=".ui.product.ProductDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
@@ -59,45 +59,46 @@
         android:id="@+id/linearLayout7"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@color/white"
         android:elevation="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/add_to_cart_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:layout_weight="1"
             android:background="@color/white"
-            android:layout_weight="1">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADD TO CART"
                 android:drawableEnd="@drawable/baseline_shopping_cart_24"
-                android:drawableTint="#485F70"
                 android:drawablePadding="8dp"
+                android:drawableTint="#485F70"
                 android:gravity="center"
+                android:text="ADD TO CART"
+                android:textColor="#485F70"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#485F70"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <Button
+            android:id="@+id/buy_now_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="BUY NOW"
+            android:layout_weight="1"
             android:background="@color/blue"
+            android:stateListAnimator="@null"
+            android:text="BUY NOW"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
-
+            android:textStyle="bold" />
 
     </LinearLayout>
 

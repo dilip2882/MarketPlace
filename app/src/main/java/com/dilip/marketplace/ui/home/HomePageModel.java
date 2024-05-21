@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.home;
 
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 import com.dilip.marketplace.ui.slider.SliderModel;

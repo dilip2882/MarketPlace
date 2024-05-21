@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.home;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;

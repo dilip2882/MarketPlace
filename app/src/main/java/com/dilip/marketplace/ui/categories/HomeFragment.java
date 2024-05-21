@@ -1,43 +1,25 @@
 package com.dilip.marketplace.ui.categories;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.FragmentHomeBinding;
-import com.dilip.marketplace.databinding.GridProductLayoutBinding;
-import com.dilip.marketplace.databinding.HorizontalScrollLayoutBinding;
-import com.dilip.marketplace.databinding.SlidingAdLayoutBinding;
-import com.dilip.marketplace.databinding.StripAdLayoutBinding;
-import com.dilip.marketplace.ui.HomePageAdapter;
-import com.dilip.marketplace.ui.HomePageModel;
-import com.dilip.marketplace.ui.grid_product_view.GridProductLayoutAdapter;
-import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollAdapter;
+import com.dilip.marketplace.ui.home.HomePageAdapter;
+import com.dilip.marketplace.ui.home.HomePageModel;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
-import com.dilip.marketplace.ui.slider.SliderAdapter;
 import com.dilip.marketplace.ui.slider.SliderModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class HomeFragment extends Fragment {
 

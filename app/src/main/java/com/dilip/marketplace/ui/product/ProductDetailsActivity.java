@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.product;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;

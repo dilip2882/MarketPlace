@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.product;
 
 public class ProductSpecificationModel {
     public static final int SPECIFICATION_TITLE = 0;

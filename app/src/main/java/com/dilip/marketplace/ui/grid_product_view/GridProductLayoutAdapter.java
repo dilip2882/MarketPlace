@@ -1,7 +1,6 @@
 package com.dilip.marketplace.ui.grid_product_view;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dilip.marketplace.R;
-import com.dilip.marketplace.ui.ProductDetailsActivity;
+import com.dilip.marketplace.ui.product.ProductDetailsActivity;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 
 import java.util.List;

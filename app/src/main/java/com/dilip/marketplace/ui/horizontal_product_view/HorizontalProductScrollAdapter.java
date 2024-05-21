@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.HorizontalScrollItemBinding;
-import com.dilip.marketplace.ui.ProductDetailsActivity;
+import com.dilip.marketplace.ui.product.ProductDetailsActivity;
 
 import java.util.List;
 
