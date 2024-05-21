@@ -1,5 +1,7 @@
 package com.dilip.marketplace.ui.grid_product_view;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.ProductDetailsActivity;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 
 import java.util.List;
@@ -40,6 +43,14 @@ public class GridProductLayoutAdapter extends BaseAdapter {
         if (convertView == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item,null);
             view.setElevation(0);
+//            view.setBackgroundColor(Color.parseColor("#ffffff"));
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent productDetailsIntent = new Intent(parent.getContext(), ProductDetailsActivity.class);
+                    parent.getContext().startActivity(productDetailsIntent);
+                }
+            });
 
             ImageView productImage = view.findViewById(R.id.product_image);
             TextView productTitle = view.findViewById(R.id.product_title);
@@ -52,7 +63,6 @@ public class GridProductLayoutAdapter extends BaseAdapter {
             productPrice.setText(horizontalProductScrollModelList.get(position).getProductPrice());
         } else {
             view = convertView;
-
         }
         return view;
     }
