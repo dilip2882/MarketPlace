@@ -2,15 +2,17 @@ package com.dilip.marketplace;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.dilip.marketplace.ui.cart.MyCartFragment;
 import com.dilip.marketplace.ui.categories.HomeFragment;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -27,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private FrameLayout frameLayout;
+    private TextView actionBarTextLogo;
+    NavigationView navigationView;
+    private static final int HOME_FRAGMENT = 0;
+    private static final int CART_FRAGMENT = 1;
+    private static int currentFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +43,16 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        actionBarTextLogo = findViewById(R.id.actionbar_text_logo);
+
         setSupportActionBar(binding.appBarMain.toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
+        navigationView = binding.navView;
+   /*     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, "Open navigation drawer", "Close navigation drawer");
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();*/
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -50,14 +63,50 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        navigationView.getMenu().getItem(0).setChecked(true);
+
         frameLayout = findViewById(R.id.main_frame_layout);
-        setFragment(new HomeFragment());
+        setFragment(new HomeFragment(), HOME_FRAGMENT);
+
+        navigationDrawerMenu();
+    }
+
+    private void navigationDrawerMenu() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.nav_market_place) {
+                    getSupportActionBar().setDisplayShowTitleEnabled(false);
+                    actionBarTextLogo.setVisibility(View.VISIBLE);
+                    invalidateOptionsMenu();
+                    setFragment(new HomeFragment(), HOME_FRAGMENT);
+                } else if (itemId == R.id.nav_orders) {
+                    // Handle orders navigation
+                } else if (itemId == R.id.nav_rewards) {
+                    // Handle rewards navigation
+                } else if (itemId == R.id.nav_cart) {
+                    // Handle cart navigation
+                    myCart();
+                } else if (itemId == R.id.nav_wishlist) {
+                    // Handle wishlist navigation
+                } else if (itemId == R.id.nav_account) {
+                    // Handle account navigation
+                }
+
+                // Close the drawer after handling the item selection
+                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        if (currentFragment == HOME_FRAGMENT) {
+            getMenuInflater().inflate(R.menu.main, menu);
+        }
         return true;
     }
 
@@ -72,10 +121,19 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         } else if (id == R.id.action_cart) {
-
+            myCart();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void myCart() {
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("My Cart");
+        actionBarTextLogo.setVisibility(View.GONE);
+        invalidateOptionsMenu();
+        setFragment(new MyCartFragment(), CART_FRAGMENT);
+        navigationView.getMenu().getItem(3).setChecked(true);
     }
 
     @Override
@@ -85,19 +143,20 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    /*
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
-            }
-        });
+    public void setFragment(Fragment fragment, int fragmentNo) {
+   /*     if (fragmentNo != currentFragment) {
+            currentFragment = fragmentNo;
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+            fragmentTransaction.replace(frameLayout.getId(), fragment);
+            fragmentTransaction.commit();
+        }
 */
-    public void setFragment(Fragment fragment) {
+        currentFragment = fragmentNo;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(frameLayout.getId(),fragment);
+        fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+        fragmentTransaction.replace(frameLayout.getId(), fragment);
         fragmentTransaction.commit();
+
     }
 }

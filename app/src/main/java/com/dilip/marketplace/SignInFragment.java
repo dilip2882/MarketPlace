@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.dilip.marketplace.databinding.FragmentSignInBinding;
+import com.dilip.marketplace.ui.categories.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -197,5 +198,12 @@ public class SignInFragment extends Fragment {
         Intent mainIntent = new Intent(getActivity(), MainActivity.class);
         startActivity(mainIntent);
     }
+
+/*    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//          fragmentTransaction.setCustomAnimations(R.anim.slide_from_left, R.anim.slideout_from_right);
+        fragmentTransaction.replace(binding.signInFragment.getId(), fragment);
+        fragmentTransaction.commit();
+    }*/
 
 }
