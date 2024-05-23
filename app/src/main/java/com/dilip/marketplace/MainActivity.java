@@ -1,13 +1,17 @@
 package com.dilip.marketplace;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.dilip.marketplace.ui.MyWishlistFragment;
+import com.dilip.marketplace.ui.MyRewardsFragment;
+import com.dilip.marketplace.ui.wishlist.MyWishlistFragment;
 import com.dilip.marketplace.ui.my_cart.MyOrdersFragment;
 import com.dilip.marketplace.ui.cart.MyCartFragment;
 import com.dilip.marketplace.ui.categories.HomeFragment;
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int CART_FRAGMENT = 1;
     private static final int ORDERS_FRAGMENT = 2;
     private static final int WISHLIST_FRAGMENT = 3;
+    private static final int REWARDS_FRAGMENT = 4;
+    private Window window;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -49,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         actionBarTextLogo = findViewById(R.id.actionbar_text_logo);
+        window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
@@ -88,10 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.nav_orders) {
                     gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
                 } else if (itemId == R.id.nav_rewards) {
-                    // Handle rewards navigation
+                    gotoFragment("My Rewards", new MyRewardsFragment(), REWARDS_FRAGMENT);
+
                 } else if (itemId == R.id.nav_cart) {
-                    // Handle cart navigation
                     gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+
                 } else if (itemId == R.id.nav_wishlist) {
                     gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
 
@@ -153,6 +162,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setFragment(Fragment fragment, int fragmentNo) {
         if (fragmentNo != currentFragment) {
+            if (fragmentNo == REWARDS_FRAGMENT) {
+                window.setStatusBarColor(Color.parseColor("#5B04B1"));
+                binding.appBarMain.toolbar.setBackgroundColor(Color.parseColor("#5B04B1"));
+            } else {
+                window.setStatusBarColor(getResources().getColor(R.color.blue));
+                binding.appBarMain.toolbar.setBackgroundColor(getResources().getColor(R.color.blue));
+            }
             currentFragment = fragmentNo;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
