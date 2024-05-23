@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.rewards;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.rewards;
 
 public class RewardModel {
 

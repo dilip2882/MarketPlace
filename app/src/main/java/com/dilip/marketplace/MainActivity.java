@@ -10,7 +10,8 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.dilip.marketplace.ui.MyRewardsFragment;
+import com.dilip.marketplace.ui.MyAccountFragment;
+import com.dilip.marketplace.ui.rewards.MyRewardsFragment;
 import com.dilip.marketplace.ui.wishlist.MyWishlistFragment;
 import com.dilip.marketplace.ui.my_cart.MyOrdersFragment;
 import com.dilip.marketplace.ui.cart.MyCartFragment;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int ORDERS_FRAGMENT = 2;
     private static final int WISHLIST_FRAGMENT = 3;
     private static final int REWARDS_FRAGMENT = 4;
+    private static final int ACCOUNT_FRAGMENT = 5;
     private Window window;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -105,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
 
                 } else if (itemId == R.id.nav_account) {
-                    // Handle account navigation
+                    gotoFragment("My Wishlist", new MyAccountFragment(), ACCOUNT_FRAGMENT);
                 }
 
                 // Close the drawer after handling the item selection
