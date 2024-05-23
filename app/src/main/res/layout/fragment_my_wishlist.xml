@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my_cart.MyOrdersFragment">
+    tools:context=".ui.MyWishlistFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_orders_recyclerview"
+        android:id="@+id/wishlist_recyclerview"
         android:background="@color/recyclerviewBackground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </FrameLayout>

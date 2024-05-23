@@ -1,7 +1,7 @@
 package com.dilip.marketplace.ui.home;
 
+import com.dilip.marketplace.ui.OrderDetailsActivity;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
-import com.dilip.marketplace.ui.slider.SliderModel;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ public class HomePageModel {
     private int type;
 
     ///////// Banner Slider
-    private List<SliderModel> sliderModelList;
+    private List<OrderDetailsActivity.SliderModel> sliderModelList;
 
-    public HomePageModel(int type, List<SliderModel> sliderModelList) {
+    public HomePageModel(int type, List<OrderDetailsActivity.SliderModel> sliderModelList) {
         this.type = type;
         this.sliderModelList = sliderModelList;
     }
@@ -28,11 +28,11 @@ public class HomePageModel {
         this.type = type;
     }
 
-    public List<SliderModel> getSliderModelList() {
+    public List<OrderDetailsActivity.SliderModel> getSliderModelList() {
         return sliderModelList;
     }
 
-    public void setSliderModelList(List<SliderModel> sliderModelList) {
+    public void setSliderModelList(List<OrderDetailsActivity.SliderModel> sliderModelList) {
         this.sliderModelList = sliderModelList;
     }
     ///////// Banner Slider

@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.dilip.marketplace.ui.MyOrdersFragment;
+import com.dilip.marketplace.ui.MyWishlistFragment;
+import com.dilip.marketplace.ui.my_cart.MyOrdersFragment;
 import com.dilip.marketplace.ui.cart.MyCartFragment;
 import com.dilip.marketplace.ui.categories.HomeFragment;
-import com.dilip.marketplace.ui.drawer.cart.CartFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int HOME_FRAGMENT = 0;
     private static final int CART_FRAGMENT = 1;
     private static final int ORDERS_FRAGMENT = 2;
+    private static final int WISHLIST_FRAGMENT = 3;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -85,13 +86,15 @@ public class MainActivity extends AppCompatActivity {
                     invalidateOptionsMenu();
                     setFragment(new HomeFragment(), HOME_FRAGMENT);
                 } else if (itemId == R.id.nav_orders) {
-                    gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);                } else if (itemId == R.id.nav_rewards) {
+                    gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
+                } else if (itemId == R.id.nav_rewards) {
                     // Handle rewards navigation
                 } else if (itemId == R.id.nav_cart) {
                     // Handle cart navigation
                     gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
                 } else if (itemId == R.id.nav_wishlist) {
-                    // Handle wishlist navigation
+                    gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
+
                 } else if (itemId == R.id.nav_account) {
                     // Handle account navigation
                 }
@@ -117,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_search){
+        if (id == R.id.action_search) {
             // todo: search
             return true;
-        } else if (id == R.id.action_notification){
+        } else if (id == R.id.action_notification) {
 
             return true;
         } else if (id == R.id.action_cart) {
@@ -156,6 +159,19 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(frameLayout.getId(), fragment);
             fragmentTransaction.commit();
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            if (currentFragment == HOME_FRAGMENT) {
+                super.onBackPressed();
+            } else {
+                setFragment(new HomeFragment(), HOME_FRAGMENT);
+                navigationView.getMenu().getItem(0).setChecked(true);
+            }
+        }
     }
 }

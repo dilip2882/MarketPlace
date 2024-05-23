@@ -12,14 +12,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.OrderDetailsActivity;
 
 import java.util.List;
 
 public class SliderAdapter extends PagerAdapter {
 
-    private List<SliderModel> sliderModelList;
+    private List<OrderDetailsActivity.SliderModel> sliderModelList;
 
-    public SliderAdapter(List<SliderModel> sliderModelList) {
+    public SliderAdapter(List<OrderDetailsActivity.SliderModel> sliderModelList) {
         this.sliderModelList = sliderModelList;
     }
 

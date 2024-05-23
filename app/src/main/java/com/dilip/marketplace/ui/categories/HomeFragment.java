@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.FragmentHomeBinding;
+import com.dilip.marketplace.ui.OrderDetailsActivity;
 import com.dilip.marketplace.ui.home.HomePageAdapter;
 import com.dilip.marketplace.ui.home.HomePageModel;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
-import com.dilip.marketplace.ui.slider.SliderModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,19 +60,19 @@ public class HomeFragment extends Fragment {
 
 
         ///////// Banner Slider
-        List<SliderModel> sliderModelList = new ArrayList<>();
-        sliderModelList.add(new SliderModel(R.drawable.banner5,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
+        List<OrderDetailsActivity.SliderModel> sliderModelList = new ArrayList<>();
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner5,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner6,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner1,"#ffffff"));
 
-        sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner3,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner4,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner5,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner2,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner3,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner4,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner5,"#ffffff"));
 
-        sliderModelList.add(new SliderModel(R.drawable.banner6,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner1,"#ffffff"));
-        sliderModelList.add(new SliderModel(R.drawable.banner2,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner6,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner1,"#ffffff"));
+        sliderModelList.add(new OrderDetailsActivity.SliderModel(R.drawable.banner2,"#ffffff"));
         ///////// Banner Slider
 
         ///////// Strip Ad

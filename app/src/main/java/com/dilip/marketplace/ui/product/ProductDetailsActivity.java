@@ -138,7 +138,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            // todo: search
+            finish();
             return true;
         } else if (id == R.id.action_search) {
 

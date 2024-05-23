@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.my_cart;
 
 public class MyOrderItemModel {
 

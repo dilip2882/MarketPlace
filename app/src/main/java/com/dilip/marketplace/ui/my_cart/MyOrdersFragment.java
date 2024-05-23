@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.my_cart;
 
 import android.os.Bundle;
 
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.my_cart.MyOrderAdapter;
+import com.dilip.marketplace.ui.my_cart.MyOrderItemModel;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -19,11 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.OrderDetailsActivity;
 import com.dilip.marketplace.ui.grid_product_view.GridProductLayoutAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
 import com.dilip.marketplace.ui.slider.SliderAdapter;
-import com.dilip.marketplace.ui.slider.SliderModel;
 
 import java.util.List;
 import java.util.Timer;
@@ -80,7 +80,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         switch (homePageModelList.get(position).getType()) {
             case HomePageModel.BANNER_SLIDER:
-                List<SliderModel> sliderModelList = homePageModelList.get(position).getSliderModelList();
+                List<OrderDetailsActivity.SliderModel> sliderModelList = homePageModelList.get(position).getSliderModelList();
                 ((BannerSliderViewHolder) holder).setBannerSliderViewPager(sliderModelList);
                 break;
             case HomePageModel.STRIP_AD_BANNER:
@@ -124,7 +124,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         }
 
         ///////// Banner Slider
-        private void setBannerSliderViewPager(List<SliderModel> sliderModelList) {
+        private void setBannerSliderViewPager(List<OrderDetailsActivity.SliderModel> sliderModelList) {
             SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
             bannerSliderViewPager.setClipToPadding(false);
             bannerSliderViewPager.setPageMargin(20);
@@ -170,7 +170,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         }
 
-        private void pageLooper(List<SliderModel> sliderModelList) {
+        private void pageLooper(List<OrderDetailsActivity.SliderModel> sliderModelList) {
             if (currentPage == sliderModelList.size() - 2) {
                 currentPage = 2;
                 bannerSliderViewPager.setCurrentItem(currentPage, true);
@@ -181,7 +181,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             }
         }
 
-        private void startBannerSlideShow(List<SliderModel> sliderModelList) {
+        private void startBannerSlideShow(List<OrderDetailsActivity.SliderModel> sliderModelList) {
             Handler handler = new Handler();
             Runnable update = new Runnable() {
                 @Override
