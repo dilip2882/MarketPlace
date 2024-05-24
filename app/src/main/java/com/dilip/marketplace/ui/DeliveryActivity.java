@@ -1,5 +1,6 @@
 package com.dilip.marketplace.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ public class DeliveryActivity extends AppCompatActivity {
     private ActivityDeliveryBinding binding;
     private RecyclerView deliveryRecyclerview;
     private Button changeOrAddNewAddressBtn;
+    public static final int SELECT_ADDRESS = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,14 @@ public class DeliveryActivity extends AppCompatActivity {
         cartAdapter.notifyDataSetChanged();
 
         changeOrAddNewAddressBtn.setVisibility(View.VISIBLE);
+        changeOrAddNewAddressBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myAddressesIntent = new Intent(DeliveryActivity.this, MyAddressesActivity.class);
+                myAddressesIntent.putExtra("MODE",SELECT_ADDRESS);
+                startActivity(myAddressesIntent);
+            }
+        });
 
     }
 
