@@ -23,7 +23,7 @@ public class GridProductLayoutAdapter extends BaseAdapter {
     List<HorizontalProductScrollModel> horizontalProductScrollModelList;
     @Override
     public int getCount() {
-        return 4;
+        return horizontalProductScrollModelList.size();
     }
 
     @Override

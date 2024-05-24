@@ -41,7 +41,7 @@ public class MyWishlistFragment extends Fragment {
         wishlistModelList.add(new WishlistModel(R.drawable.oneplus_nord, "Iphone 13 (Black, 128 GB)", 2, "3", 222, "Rs.99,999/-", "Rs.1,99,999/-", "Cash on delivery"));
         wishlistModelList.add(new WishlistModel(R.drawable.oneplus_11r, "Iphone 13 (Black, 128 GB)", 1, "3", 222, "Rs.99,999/-", "Rs.1,99,999/-", "Cash on delivery"));
 
-        WishlistAdapter wishlistAdapter = new WishlistAdapter(wishlistModelList);
+        WishlistAdapter wishlistAdapter = new WishlistAdapter(wishlistModelList,true);
         wishlistRecyclerview.setAdapter(wishlistAdapter);
         wishlistAdapter.notifyDataSetChanged();
 

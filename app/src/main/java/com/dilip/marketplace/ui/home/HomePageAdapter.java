@@ -1,6 +1,7 @@
 package com.dilip.marketplace.ui.home;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.ui.OrderDetailsActivity;
+import com.dilip.marketplace.ui.ViewAllActivity;
 import com.dilip.marketplace.ui.grid_product_view.GridProductLayoutAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollAdapter;
 import com.dilip.marketplace.ui.horizontal_product_view.HorizontalProductScrollModel;
@@ -241,6 +243,15 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
             if (horizontalProductScrollModelList.size() > 8) {
                 horizontalLayoutViewAllBtn.setVisibility(View.VISIBLE);
+                horizontalLayoutViewAllBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                        viewAllIntent.putExtra("layout_code",0);    // 0 -> recyclerview and 1 -> gridview
+                        itemView.getContext().startActivity(viewAllIntent);
+
+                    }
+                });
             } else {
                 horizontalLayoutViewAllBtn.setVisibility(View.INVISIBLE);
             }
@@ -268,6 +279,14 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         private void setGridProductLayout(List<HorizontalProductScrollModel> horizontalProductScrollModelList, String title) {
             gridProductTitle.setText(title);
             gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+            gridLayoutViewAllBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                    viewAllIntent.putExtra("layout_code",1);    // 0 -> recyclerview and 1 -> gridview
+                    itemView.getContext().startActivity(viewAllIntent);
+                }
+            });
         }
     }
 }

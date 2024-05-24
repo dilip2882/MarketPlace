@@ -6,18 +6,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.ActivityDeliveryBinding;
-import com.dilip.marketplace.databinding.ActivityOrderDetailsBinding;
+import com.dilip.marketplace.ui.address.MyAddressesActivity;
 import com.dilip.marketplace.ui.cart.CartAdapter;
 import com.dilip.marketplace.ui.cart.CartItemModel;
 

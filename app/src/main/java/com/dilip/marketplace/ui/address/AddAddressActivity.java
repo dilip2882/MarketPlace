@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.address;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,15 +6,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.ActivityAddAddressBinding;
+import com.dilip.marketplace.ui.DeliveryActivity;
 
 public class AddAddressActivity extends AppCompatActivity {
 

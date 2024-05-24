@@ -90,6 +90,16 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iqoo_z6,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_nord,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_11r,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.galaxy_m34,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iphone_13,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.iqoo_z6,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_nord,"I Phone 13","Bionic A2", "Rs.99,999"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.oneplus_11r,"I Phone 13","Bionic A2", "Rs.99,999"));
         //////// Horizontal Product Layout
 
         //////// Grid Product Layout

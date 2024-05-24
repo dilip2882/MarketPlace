@@ -13,10 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dilip.marketplace.R;
-import com.dilip.marketplace.ui.AddAddressActivity;
-import com.dilip.marketplace.ui.DeliveryActivity;
-import com.dilip.marketplace.ui.cart.CartAdapter;
-import com.dilip.marketplace.ui.cart.CartItemModel;
+import com.dilip.marketplace.ui.address.AddAddressActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.address;
 
 import static com.dilip.marketplace.ui.DeliveryActivity.SELECT_ADDRESS;
 import static com.dilip.marketplace.ui.MyAccountFragment.MANAGE_ADDRESS;
-import static com.dilip.marketplace.ui.MyAddressesActivity.refreshItem;
+import static com.dilip.marketplace.ui.address.MyAddressesActivity.refreshItem;
 
 import android.view.LayoutInflater;
 import android.view.View;

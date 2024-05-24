@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.address.MyAddressesActivity;
 
 public class MyAccountFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.dilip.marketplace.ui;
+package com.dilip.marketplace.ui.address;
 
 import static com.dilip.marketplace.ui.DeliveryActivity.SELECT_ADDRESS;
 
@@ -7,18 +7,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
-import com.dilip.marketplace.R;
 import com.dilip.marketplace.databinding.ActivityMyAddressesBinding;
+import com.dilip.marketplace.ui.address.AddressesAdapter;
+import com.dilip.marketplace.ui.address.AddressesModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,11 +73,11 @@ public class MyAddressesActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
-        return super.onContextItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 }
