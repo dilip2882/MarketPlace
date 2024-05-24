@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
 
                 } else if (itemId == R.id.nav_account) {
-                    gotoFragment("My Wishlist", new MyAccountFragment(), ACCOUNT_FRAGMENT);
+                    gotoFragment("My Account", new MyAccountFragment(), ACCOUNT_FRAGMENT);
                 }
 
                 // Close the drawer after handling the item selection
