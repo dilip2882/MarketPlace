@@ -23,8 +23,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="825dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,11 +41,12 @@
                 android:id="@+id/imageView13"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/blue"
-                android:src="@drawable/baseline_add_location_alt_24" />
+                android:src="@drawable/baseline_add_location_alt_24"
+                app:tint="@color/blue" />
 
             <EditText
                 android:id="@+id/city"
@@ -64,6 +66,7 @@
                 android:ems="10"
                 android:lines="3"
                 android:gravity="start"
+                android:isScrollContainer="true"
                 android:inputType="textMultiLine"
                 android:hint="Locality, area or street*"
                 android:layout_marginStart="16dp"
@@ -78,6 +81,7 @@
                 android:ems="10"
                 android:lines="3"
                 android:gravity="start"
+                android:isScrollContainer="true"
                 android:inputType="textMultiLine"
                 android:hint="Flat no., House no., Building*"
                 android:layout_marginStart="16dp"

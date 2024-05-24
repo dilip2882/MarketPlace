@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dilip.marketplace.R;
+import com.dilip.marketplace.ui.AddAddressActivity;
 import com.dilip.marketplace.ui.DeliveryActivity;
 import com.dilip.marketplace.ui.cart.CartAdapter;
 import com.dilip.marketplace.ui.cart.CartItemModel;
@@ -56,7 +57,7 @@ public class MyCartFragment extends Fragment {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent deliveryIntent = new Intent(getContext(), DeliveryActivity.class);
+                Intent deliveryIntent = new Intent(getContext(), AddAddressActivity.class);
                 getContext().startActivity(deliveryIntent);
             }
         });
